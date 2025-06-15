@@ -1,0 +1,12 @@
+__pycache__
+/.venv
+/result
+/logs
+/plugins
+/config
+/data
+/.env
+/done_cfg.flag
+/docker-compose.yaml
+/airflow.sh
+/results
