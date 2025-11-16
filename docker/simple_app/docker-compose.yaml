@@ -1,0 +1,26 @@
+services:
+  app-dev:
+    image: test-app:v1
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    profiles:
+      - dev
+    develop:
+      watch:
+        - action: sync
+          path: app.py
+          target: /app.py
+          initial_sync: true
+        - action: rebuild
+          path: requirements.txt
+  app-prod:
+    image: test-app:v1
+    build: .
+    ports:
+      - "5000:5000"
+    profiles:
+      - prod
